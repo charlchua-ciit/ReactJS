@@ -1,0 +1,2 @@
+git config --global user.email "charl.chua@ciit.edu.ph"
+git config --global user.name "charlchua-ciit"
