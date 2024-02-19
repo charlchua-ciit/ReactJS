@@ -15,12 +15,14 @@ export default function Home() {
 
   useEffect(() => {
     const ref = collection(db, 'articles');
+    setShowModal(true)
     onSnapshot(ref, (snapshot)=>{
         console.log(snapshot);
         let results = []
          snapshot.docs.forEach(doc => {
            results.push({id: doc.id, ...doc.data()});
          });
+         handleClose()
         setArticles(results);
       })
 
