@@ -24,7 +24,7 @@ export default function Home() {
          });
          handleClose()
         setArticles(results);
-      })
+      });
 
     // getDocs(ref)
     //   .then((snapshot)=>{
@@ -52,7 +52,8 @@ export default function Home() {
 
   return (
     <div className="home">
-      <h2>Articles</h2>      
+      <h2>Articles</h2>
+
       {articles && articles.map(article => (
         <div key={article.id} className="card">
           <h3>{article.title}</h3>
