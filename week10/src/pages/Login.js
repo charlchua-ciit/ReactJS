@@ -34,11 +34,11 @@ const Login = () => {
                             <span>Email:</span>
                             <input
                                 type="text"
-                                label="Username"
+                                label="Email"
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}  
                                 required                                    
-                                placeholder="Username"                                
+                                placeholder="Email"                                
                             />
                             </label>
                         </div>
