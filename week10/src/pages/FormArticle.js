@@ -14,7 +14,6 @@ export default function Create() {
   const handleSubmit = async (e) => {
     e.preventDefault()
     let author = auth.currentUser.displayName
-    alert(author)
     const article = {title,author,description};
     const ref = collection(db, 'articles')
     await addDoc(ref,article)
