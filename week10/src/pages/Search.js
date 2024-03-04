@@ -1,5 +1,5 @@
 import { Link,useNavigate } from 'react-router-dom'
-import {getDocs, addDoc, collection, deleteDoc, doc, onSnapshot, serverTimestamp, query, orderBy } from 'firebase/firestore';
+import {getDocs, addDoc, collection, deleteDoc, doc, onSnapshot, serverTimestamp, query, orderBy,where } from 'firebase/firestore';
 import {db,auth} from '../firebase/config'
 import Modal from "../components/Modal"
 import { useEffect,useState } from 'react';
@@ -7,42 +7,35 @@ import { onAuthStateChanged } from "firebase/auth";
 // styles
 import './Home.css'
 
-export default function Home() {
+export default function Search() {
 
   const [articles, setArticles] = useState(null);
   const [showModal, setShowModal] = useState(false);
-  const [post, setPost] = useState('')
+  const [search, setSearch] = useState('')
   const navigate = useNavigate()
 
   useEffect(() => {
-    const ref = collection(db, 'articles');
-    const q = query(ref, orderBy('time','desc'))
-    setShowModal(true)
-    onSnapshot(q, (snapshot)=>{
-        console.log(snapshot);
-        let results = []
-         snapshot.docs.forEach(doc => {
-           results.push({id: doc.id, ...doc.data()});
-         });
-         handleClose()
-        setArticles(results);
-      });   
+       
   },[])
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        var time = serverTimestamp()
-        let author = auth.currentUser.displayName
-        const article = {author,post,time};
-        const ref = collection(db, 'articles')
-        addDoc(ref,article)
-        setPost('')
-      } else {
-        navigate('/login')
-      }
-    })
+    setArticles(null)
+    const ref = collection(db, 'articles');
+    const q = query(ref, orderBy('time','desc'))
+    setShowModal(true)
+    getDocs(q)
+    .then((snapshot)=>{
+      let results = []
+      console.log(snapshot)
+      snapshot.docs.forEach(doc => {
+        if (doc.data().author==search){
+          results.push({id: doc.id, ...doc.data()});
+        }
+      });
+      handleClose()
+      setArticles(results);
+    })    
   }
 
 
@@ -53,18 +46,19 @@ export default function Home() {
 
   return (
     <div className="home">
-      <h2>Home</h2>
+      <h2>Search for user's posts</h2>
 
       <form onSubmit={handleSubmit}>
         <div className="writepost">
-          <textarea
-          onChange={(e) => setPost(e.target.value)}
-          value={post}
+          <input
+          type='text'
+          onChange={(e) => setSearch(e.target.value)}
+          value={search}
           placeholder='Write something!'
           required
           >
-          </textarea>
-          <button>Post</button>
+          </input>
+          <button>Find</button>
         </div>
       </form>
       <br />

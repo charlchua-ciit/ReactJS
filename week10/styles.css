@@ -1,0 +1,90 @@
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Body styles */
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    color: #333;
+  }
+  
+  /* Header styles */
+  header {
+    background-color: #35465d;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  header h1 {
+    font-size: 2em;
+  }
+  
+  /* Navigation styles */
+  nav {
+    background-color: #35465d;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  nav ul {
+    list-style: none;
+  }
+  
+  nav ul li {
+    display: inline;
+    margin-right: 20px;
+  }
+  
+  nav ul li a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  /* Main content styles */
+  main {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+  }
+  
+  /* Post styles */
+  .post {
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+  }
+  
+  .post h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+  }
+  
+  .post p {
+    line-height: 1.6;
+  }
+  
+  /* Sidebar styles */
+  .sidebar {
+    float: right;
+    width: 30%;
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 5px;
+  }
+  
+  /* Footer styles */
+  footer {
+    background-color: #35465d;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+  }

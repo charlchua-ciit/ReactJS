@@ -2,31 +2,160 @@
   max-width: 960px;
   margin: 0 auto;
 }
-nav {
-  display: flex;
-  margin: 0 auto 60px;
-  gap: 10px;
-  align-items: center;
+/* Reset default styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-nav h1 {
-  margin-right: auto;
-}
-nav a {
+
+/* Body styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
   color: #333;
-  padding: 4px 10px;
 }
-nav a.active {
-  color: white;
-  background: #333;
+
+/* Header styles */
+header {
+  background-color: #35465d;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 2em;
+}
+
+/* Navigation styles */
+nav {
+  background-color: #35465d;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+}
+
+nav ul {
+  list-style: none;
+}
+
+nav ul li {
+  display: inline;
+  margin-right: 20px;
+}
+
+nav ul li a {
+  color: #fff;
   text-decoration: none;
 }
 
-.button {
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
+/* Main content styles */
+main {
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 5px;
+}
+
+a{
   text-decoration: none;
+  color: #333;
+}
+
+
+/* Sidebar styles */
+.sidebar {
+  float: right;
+  width: 30%;
+  background-color: #f0f0f0;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+/* Footer styles */
+footer {
+  background-color: #35465d;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+.writepost{
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  padding: 12px 20px 55px;
+}
+
+.writepost textarea {
+  width: 100%;
+  height: 150px;
+  border:0px;
+  background-color: #f8f8f8;
+  resize: none;
+}
+.writepost textarea:focus {
+  outline: none;
+}   
+
+.writepost input {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  height: 20px;
+  border:1px solid #ccc;
+  background-color: #f8f8f8;
+  resize: none;
+}
+.writepost input:focus {
+  outline: none;
+}   
+
+.writepost p{
   display: inline-block;
-  font-size: 16px;
+}
+
+.writepost h2{
+  display: inline-block;
+}
+
+.writepost button{
+  border: none;
+  background-color: #35465d;
+  color: #f8f8f8;
+  padding: 10px;
+  border-radius: 4px;
+  position: relative;
+  float: inline-end;
+}
+
+.create {
+  color: #555;
+  max-width: 480px;
+  margin: 60px auto;
+}
+.create label span {
+  display: block;
+  margin: 30px 0 10px;
+}
+.create p {
+  margin-top: 10px;
+  font-size: 0.8em;
+}
+
+.close{
+  width: 20px;
+  height: 20px;
+  float:inline-end;
+}
+
+@media only screen and (max-width: 620px) {
+  /* For mobile phones: */
+  .menu, .main, .right, .tab {
+      width: 100%;
+  }
 }

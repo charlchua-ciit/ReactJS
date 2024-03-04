@@ -1,4 +1,5 @@
 import firebase from 'firebase/compat/app';
+import { setPersistence, browserLocalPersistence } from 'firebase/auth';
 import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
 
@@ -15,5 +16,7 @@ const firebaseConfig = {
   const firebaseApp = firebase.initializeApp(firebaseConfig);
   const db = firebaseApp.firestore();
   const auth = firebase.auth();
+  setPersistence(auth, browserLocalPersistence);
+  const time = firebase.firestore.FieldValue.serverTimestamp()
 
-  export { db,auth }
+  export { db,auth,time }

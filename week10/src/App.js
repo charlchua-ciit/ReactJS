@@ -3,76 +3,70 @@ import './App.css';
 //import ReminderList from './components/ReminderList';
 import { BrowserRouter, Route, NavLink, Routes,Navigate , Link} from 'react-router-dom'
 import React, { useState, useEffect } from 'react';
-import { onAuthStateChanged, signOut } from "firebase/auth";
+import { onAuthStateChanged } from "firebase/auth";
 import { auth } from './firebase/config';
-import { useNavigate } from 'react-router-dom';
 
 import About from './pages/About'
 import Contact from './pages/Contact'
 import Home from './pages/Home'
 import Article from './pages/Article'
-import FormArticle from './pages/FormArticle'
 import Login from './pages/Login'
 import Signup from './pages/Signup'
+import Profile from './pages/Profile'
+import Search  from './pages/Search';
 
 function App() {
 
   const [isLogged, setLogged] = useState();
-  const [loggedOut, setOut] = useState();
 
   useEffect(()=>{
+  
     onAuthStateChanged(auth, (user) => {
         if (user) {
           // User is signed in, see docs for a list of available properties
           // https://firebase.google.com/docs/reference/js/firebase.User
           const uid = user.uid;
           setLogged(true)
-          setOut(false)
           // ...
           console.log("uid", uid)
         } else {
           // User is signed out
           // ...
           setLogged(false)
-          setOut(true)
           console.log("user is logged out")
         }
       });
   }, [])
 
-  const handleLogout = () => {               
-    signOut(auth).then(() => {
-    // Sign-out successful.
-    console.log("Signed out successfully")
-    }).catch((error) => {
-    // An error happened.
-    });
-  }
-
   return (
-    <div className="App">
+    <div>
+      <header>
+        <h1>Jabs</h1>
+        <p>Just Another Blog Site</p>
+      </header>
       <BrowserRouter>
-        <nav>
-          <h1>My Articles</h1>
-          <NavLink to="/">Home</NavLink>
-          <NavLink to="/about">About</NavLink>
-          <NavLink to="/contact">Contact</NavLink>
-          <NavLink to="/new">New Article</NavLink>
-          {loggedOut && <NavLink to="/login">Login</NavLink>}
-          {isLogged && <button onClick={handleLogout}>Log Out</button>}
+      <nav className='navbar'>
+          <ul>
+            <li><NavLink to="/">Home</NavLink></li>
+            <li><NavLink to="/about">About</NavLink></li>
+            <li><NavLink to="/contact">Contact</NavLink></li>
+            <li><NavLink to="/search">Search</NavLink></li>
+            <li>{isLogged ? <NavLink to="/profile">Profile</NavLink> :<NavLink to="/login">Login</NavLink> }</li>
+          </ul>
         </nav>
-
+      <div className="App">
         <Routes>
           <Route path="/" element={<Home/>}/>
           <Route path="/about" element={<About /> }/>
           <Route path="/contact" element={<Contact /> }/>
           <Route path="/articles/:urlId" element={<Article/> }/>
-          <Route path="/new" element={<FormArticle /> }/>
           <Route path="/login" element={<Login /> }/>
           <Route path="/signup" element={<Signup /> }/>
+          <Route path="/profile" element={<Profile /> }/>
+          <Route path="/search" element={<Search /> }/>
           <Route path="/*" element={<Navigate to="/"/> }/>
         </Routes>
-
+      </div>
       </BrowserRouter>
     </div>
   );

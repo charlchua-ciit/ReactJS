@@ -1,31 +1,85 @@
-.home .card {
-    padding: 20px;
-    border: 1px solid #e4e4e4;
-    border-radius: 4px;
-    box-shadow: 4px 4px 6px rgba(0,0,0,0.05);
-    margin-bottom: 20px;
-  }
+.home{
+  margin-bottom: 20px;
+  padding: 20px;
+  border-radius: 5px;
+}
 
-  
-  .icon {
-    position: relative;    
-    cursor: pointer;
-    filter: invert(60%);
-    padding-left: 10px;
-    padding-bottom: 5px;
-    float: right;
-    width: 3%;
-    height: 3%;
-  }
+/* Post styles */
+.post {
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-bottom: 1px solid #333;
+}
 
-  .edit{
-    position: relative;    
-    cursor: pointer;
-    filter: invert(60%);
-    padding-left: 10px;
-    padding-bottom: 5px;
-    float: right;
-    width: 3%;
-    height: 3%;
-  }
+.post h2 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.post p {
+  line-height: 1.6;
+}
+
+.article{
+  padding: 20px 20px 55px 20px;
+  background-color: #f9f9f9;
+}
+
+.articlenobtn{
+  padding: 20px;
+  background-color: #f9f9f9;
+}
+
+.article h2 {
+  display: inline-block;
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.article p {
+  line-height: 1.6;
+}
+
+.article button {
+  border: none;
+  background-color: #35465d;
+  color: #f8f8f8;
+  padding: 10px;
+  border-radius: 4px;
+  position: relative;
+  float: inline-end;
+}
+
+
+.logout{
+  border: none;
+  background-color: #35465d;
+  color: #f8f8f8;
+  padding: 10px;
+  border-radius: 4px;
+  position: relative;
+  float: inline-end;
+}
+
+.icon {
+  position: relative;    
+  cursor: pointer;
+  filter: invert(60%);
+  padding-left: 10px;
+  padding-bottom: 5px;
+  float: right;
+  width: 3%;
+  height: 3%;
+}
+
+.edit{
+  position: relative;    
+  cursor: pointer;
+  filter: invert(60%);
+  padding-left: 10px;
+  padding-bottom: 5px;
+  float: right;
+  width: 3%;
+  height: 3%;
+}
 

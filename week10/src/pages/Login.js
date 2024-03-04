@@ -18,6 +18,7 @@ const Login = () => {
             console.log(user);
         })
         .catch((error) => {
+            alert("Credentials not found, please try again.")
             const errorCode = error.code;
             const errorMessage = error.message;
             console.log(errorCode, errorMessage)
@@ -27,7 +28,7 @@ const Login = () => {
         <main >        
             <section>
                 <div className="create">                                         
-                    <h1>Article Login</h1>                                               
+                    <h1>Login to your Jabs Account</h1>                                               
                     <form>                                                                                            
                         <div>
                             <label>
