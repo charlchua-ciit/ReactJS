@@ -71,8 +71,6 @@ export default function Profile() {
 
   const editName = async (e) =>{
     e.preventDefault()
-    alert(user)
-    alert(name)
     db.collection('articles')
     .where('author', '==', name)
     .get()
@@ -159,7 +157,7 @@ export default function Profile() {
                   />
                 </label>
 
-                <button>Post</button>
+                <button>Update</button>
               </form>
             </div>
         </Modal>}
