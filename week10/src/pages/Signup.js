@@ -31,7 +31,7 @@ const Signup = () => {
         <section>
             <div>
                 <div className="create">                  
-                    <h1>Article Signup </h1>                                                                            
+                    <h1>Create your Jabs Account</h1>                                                                            
                     <form>
                         <div>
                             <label>
@@ -41,8 +41,7 @@ const Signup = () => {
                                 label="Email"
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}  
-                                required                                    
-                                placeholder="Email"                                
+                                required                                                                    
                             />
                             </label>
                         </div>
@@ -55,8 +54,7 @@ const Signup = () => {
                                 label="Username"
                                 value={username}
                                 onChange={(e) => setUsername(e.target.value)}  
-                                required                                    
-                                placeholder="Username"                                
+                                required                                                                  
                             />
                             </label>
                         </div>
@@ -69,12 +67,11 @@ const Signup = () => {
                                 label="Create password"
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)} 
-                                required                                 
-                                placeholder="Password"              
+                                required
                             />
                             </label>
                         </div>                                             
-                        
+                        <br />
                         <button
                             type="submit" 
                             onClick={onSubmit}                        

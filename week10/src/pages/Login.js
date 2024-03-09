@@ -38,8 +38,7 @@ const Login = () => {
                                 label="Email"
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}  
-                                required                                    
-                                placeholder="Email"                                
+                                required
                             />
                             </label>
                         </div>
@@ -52,12 +51,11 @@ const Login = () => {
                                 label="Create password"
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)} 
-                                required                                 
-                                placeholder="Password"              
+                                required
                             />
                             </label>
-                        </div>    
-                                            
+                        </div>
+                        <br />
                         <div>
                             <button                                    
                                 onClick={onLogin}                                        
